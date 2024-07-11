@@ -14,9 +14,16 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
+# urls.py
 from django.contrib import admin
 from django.urls import path
+from inmuebles import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    #path('contacto/', views.contenido, {'tipo': 'contacto'}, name='contacto'),  # Ruta específica para el formulario de contacto
+    path('<str:tipo>/', views.contenido, name='contenido'),  # Ruta genérica para otros tipos de contenido
+    path('', views.contenido, {'tipo': 'index'}, name='index'),  # Ruta para la página de inicio
 ]
+
+
