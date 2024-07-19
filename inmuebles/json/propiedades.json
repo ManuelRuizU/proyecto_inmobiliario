@@ -1,0 +1,70 @@
+
+[
+    {
+      "model": "inmuebles.direccion",
+      "pk": 1,
+      "fields": {
+        "pais": "Chile",
+        "region": "Región Metropolitana",
+        "ciudad": "Santiago",
+        "comuna": "Las Condes",
+        "calle": "Av. Apoquindo",
+        "numero": "1234"
+      }
+    },
+    {
+      "model": "inmuebles.propiedad",
+      "pk": 1,
+      "fields": {
+        "nombre": "Casa en Las Condes",
+        "descripcion": "Una hermosa casa en una excelente ubicación.",
+        "m2_construidos": "150.00",
+        "m2_terreno": "200.00",
+        "cantidad_estacionamientos": 2,
+        "cantidad_habitaciones": 3,
+        "cantidad_banos": 2,
+        "direccion": 1,
+        "tipo_inmueble": "Casa",
+        "precio_mensual": "1000000.0",
+        "tipo_moneda": 1,
+        "arrendador": 1,
+        "numero_departamento": "",
+        "image_url": "http://example.com/image.jpg",
+        "url": "http://example.com",
+        "slug": "casa-en-las-condes"
+      }
+    },
+    {
+      "model": "auth.user",
+      "pk": 1,
+      "fields": {
+        "username": "usuario1",
+        "password": "pbkdf2_sha256$260000$abcdef$1234567890abcdef",
+        "is_superuser": false,
+        "is_staff": true,
+        "is_active": true,
+        "first_name": "Usuario",
+        "last_name": "Uno",
+        "email": "usuario1@example.com"
+      }
+    },
+    {
+      "model": "inmuebles.tipomoneda",
+      "pk": 1,
+      "fields": {
+        "nombre": "CLP"
+      }
+    },
+    {
+      "model": "inmuebles.usuario",
+      "pk": 1,
+      "fields": {
+        "user": 1,
+        "rut": "12345678-9",
+        "direccion": 1,
+        "telefono": "123456789",
+        "tipo_usuario": "Arrendador"
+      }
+    }
+  ]
+  

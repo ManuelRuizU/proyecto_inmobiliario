@@ -1,9 +1,8 @@
 # admin.py
 
-# usuarios/admin.py
-
 from django.contrib import admin
 from .models import Usuario, Direccion, Propiedad, TipoMoneda
+from .forms import PropiedadForm
 
 class UsuarioAdmin(admin.ModelAdmin):
     list_display = ('user', 'rut', 'direccion', 'telefono', 'tipo_usuario')

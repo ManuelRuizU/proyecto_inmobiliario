@@ -1,0 +1,6 @@
+Región: Región Metropolitana
+ - Nombre: Casa en Las Condes, Descripción: Una hermosa casa en una excelente ubicación.
+
+Región: Metropolitana de Santiago
+ - Nombre: Departamento en Providencia, Descripción: Se arrienda departamento amplio living comedor con terraza, 3 dormitorios el principal en suite, dos baños , gran cantidad de closets, todo el departamento con piso flotante, cocina equipada , con comedor de diario, loggia, todos los ventanales con thermopanel, estacionamiento, bodega, estacionamiento de visitas, piscina. El edificio cuenta con seguridad día y noche. Esta a pasos metro Colón, clicovias, parques, plazas, supermercados.
+

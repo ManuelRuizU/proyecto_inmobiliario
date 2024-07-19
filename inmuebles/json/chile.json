@@ -6,7 +6,7 @@
             "name": "Arica y Parinacota",
             "romanNumber": "XV",
             "number": "15",
-            "communes": [
+            "comunas": [
                 {"name": "Arica"},
                 {"name": "Camarones"},
                 {"name": "General Lagos"},
@@ -17,7 +17,7 @@
             "name": "Tarapacá",
             "romanNumber": "I",
             "number": "1",
-            "communes": [
+            "comunas": [
                 {"name": "Alto Hospicio"},
                 {"name": "Camiña"},
                 {"name": "Colchane"},
@@ -31,7 +31,7 @@
             "name": "Antofagasta",
             "romanNumber": "II",
             "number": "2",
-            "communes": [
+            "comunas": [
                 {"name": "Antofagasta"},
                 {"name": "Calama"},
                 {"name": "María Elena"},
@@ -47,7 +47,7 @@
             "name": "Atacama",
             "romanNumber": "III",
             "number": "3",
-            "communes": [
+            "comunas": [
                 {"name": "Alto del Carmen"},
                 {"name": "Caldera"},
                 {"name": "Chañaral"},
@@ -63,7 +63,7 @@
             "name": "Coquimbo",
             "romanNumber": "IV",
             "number": "4",
-            "communes": [
+            "comunas": [
                 {"name": "Andacollo"},
                 {"name": "Canela"},
                 {"name": "Combarbalá"},
@@ -85,7 +85,7 @@
             "name": "Valparaíso",
             "romanNumber": "V",
             "number": "5",
-            "communes": [
+            "comunas": [
                 {"name": "Algarrobo"},
                 {"name": "Cabildo"},
                 {"name": "Calera"},
@@ -130,7 +130,7 @@
             "name": "Metropolitana de Santiago",
             "romanNumber": "XIII",
             "number": "13",
-            "communes": [
+            "comunas": [
                 {"name": "Alhué"},
                 {"name": "Buin"},
                 {"name": "Calera de Tango"},
@@ -189,7 +189,7 @@
             "name": "Libertador Gral. Bernardo O’Higgins",
             "romanNumber": "VI",
             "number": "6",
-            "communes": [
+            "comunas": [
                 {"name": "Chimbarongo"},
                 {"name": "Chépica"},
                 {"name": "Codegua"},
@@ -229,7 +229,7 @@
             "name": "Maule",
             "romanNumber": "VII",
             "number": "7",
-            "communes": [
+            "comunas": [
                 {"name": "Cauquenes"},
                 {"name": "Chanco"},
                 {"name": "Colbún"},
@@ -266,7 +266,7 @@
             "name": "Ñuble",
             "romanNumber": "XVI",
             "number": "16",
-            "communes": [
+            "comunas": [
                 {"name": "Bulnes"},
                 {"name": "Chillán Viejo"},
                 {"name": "Chillán"},
@@ -294,7 +294,7 @@
             "name": "Biobío",
             "romanNumber": "VIII",
             "number": "8",
-            "communes": [
+            "comunas": [
                 {"name": "Alto Biobío"},
                 {"name": "Antuco"},
                 {"name": "Arauco"},
@@ -334,7 +334,7 @@
             "name": "Araucanía",
             "romanNumber": "IX",
             "number": "9",
-            "communes": [
+            "comunas": [
                 {"name": "Angol"},
                 {"name": "Carahue"},
                 {"name": "Cholchol"},
@@ -373,7 +373,7 @@
             "name": "Los Ríos",
             "romanNumber": "XIV",
             "number": "14",
-            "communes": [
+            "comunas": [
                 {"name": "Corral"},
                 {"name": "Futrono"},
                 {"name": "La Unión"},
@@ -392,7 +392,7 @@
             "name": "Los Lagos",
             "romanNumber": "X",
             "number": "10",
-            "communes": [
+            "comunas": [
                 {"name": "Ancud"},
                 {"name": "Calbuco"},
                 {"name": "Castro"},
@@ -429,7 +429,7 @@
             "name": "Aisén del Gral. Carlos Ibáñez del Campo",
             "romanNumber": "XI",
             "number": "11",
-            "communes": [
+            "comunas": [
                 {"name": "Aisén"},
                 {"name": "Chile Chico"},
                 {"name": "Cisnes"},
@@ -446,7 +446,7 @@
             "name": "Magallanes y de la Antártica Chilena",
             "romanNumber": "XII",
             "number": "12",
-            "communes": [
+            "comunas": [
                 {"name": "Antártica"},
                 {"name": "Cabo de Hornos (Ex Navarino)"},
                 {"name": "Laguna Blanca"},

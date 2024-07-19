@@ -11,7 +11,7 @@ class Usuario(models.Model):
     tipo_usuario = models.CharField(max_length=50, choices=[('arrendatario', 'Arrendatario'), ('arrendador', 'Arrendador')])
 
     def __str__(self):
-        return self.user.username
+        return f"({self.id})-({self.user.first_name})-({self.user.last_name})"
 
 # Direccion
 class Direccion(models.Model):
@@ -54,6 +54,9 @@ class Propiedad(models.Model):
     tipo_moneda = models.ForeignKey(TipoMoneda, on_delete=models.CASCADE)
     arrendador = models.ForeignKey('Usuario', on_delete=models.CASCADE, related_name='propiedades')
     numero_departamento = models.CharField(max_length=10, blank=True, null=True)
+    image_url = models.URLField(max_length=255, default='ingrese_una_url_para_la_imagen')
+    url = models.CharField(max_length=100, default='')
+    slug = models.SlugField(max_length=100, default='')
 
     def __str__(self):
         return self.nombre
