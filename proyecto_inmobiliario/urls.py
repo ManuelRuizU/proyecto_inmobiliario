@@ -21,7 +21,12 @@ from inmuebles import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    #path('contacto/', views.contenido, {'tipo': 'contacto'}, name='contacto'),  # Ruta específica para el formulario de contacto
+    path('contacto/', views.contenido, {'tipo': 'contacto'}, name='contacto'),  # Ruta específica para el formulario de contacto
+    path('login/', views.contenido, {'tipo': 'login'}, name='login'),  # Ruta específica para el login
+    path('register/', views.contenido, {'tipo': 'register'}, name='register'),  # Ruta específica para el registro
+    path('profile/', views.contenido, {'tipo': 'profile'}, name='profile'),  # Ruta específica para el perfil
+    path('edit_profile/', views.contenido, {'tipo': 'edit_profile'}, name='edit_profile'),  # Ruta específica para editar el perfil
+    path('logout/', views.contenido, {'tipo': 'logout'}, name='logout'),  # Ruta específica para logout
     path('<str:tipo>/', views.contenido, name='contenido'),  # Ruta genérica para otros tipos de contenido
     path('', views.contenido, {'tipo': 'index'}, name='index'),  # Ruta para la página de inicio
 ]

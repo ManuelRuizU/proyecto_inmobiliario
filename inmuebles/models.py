@@ -1,6 +1,6 @@
+# models.py
 from django.contrib.auth.models import User
 from django.db import models
-
 
 # Usuario
 class Usuario(models.Model):
@@ -11,7 +11,7 @@ class Usuario(models.Model):
     tipo_usuario = models.CharField(max_length=50, choices=[('arrendatario', 'Arrendatario'), ('arrendador', 'Arrendador')])
 
     def __str__(self):
-        return f"({self.id})-({self.user.first_name})-({self.user.last_name})"
+        return f"{self.user.first_name} {self.user.last_name}"
 
 # Direccion
 class Direccion(models.Model):

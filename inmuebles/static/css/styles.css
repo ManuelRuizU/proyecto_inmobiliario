@@ -1,10 +1,10 @@
 
 /********** Template CSS **********/
 :root {
-    --primary: #00B98E;
+    --primary: #e0fe01;
     --secondary: #FF6922;
     --light: #EFFDF5;
-    --dark: #0E2E50;
+    --dark: #ffffff;
 }
 
 .back-to-top {
@@ -16,25 +16,15 @@
 }
 
 
-/*** Spinner ***/
-#spinner {
-    opacity: 0;
-    visibility: hidden;
-    transition: opacity .5s ease-out, visibility 0s linear .5s;
-    z-index: 99999;
-}
-
-#spinner.show {
-    transition: opacity .5s ease-out, visibility 0s linear 0s;
-    visibility: visible;
-    opacity: 1;
-}
-
-
 /*** Button ***/
 .btn {
     transition: .5s;
 }
+
+.btn-buscar {
+    background-color: var(--primary);
+}
+
 
 .btn.btn-primary,
 .btn.btn-secondary {
@@ -89,7 +79,7 @@
 
 .navbar {
     box-shadow: 0 0 30px rgba(0, 0, 0, .08);
-	background: linear-gradient(to left, #1e9600, #fff200, #ff0000);
+	background: linear-gradient(to right, #ff304f, #ff304f);
 }
 
 .navbar .dropdown-toggle::after {
@@ -119,6 +109,10 @@
 .navbar-light .navbar-nav .nav-link.active {
     color: var(--primary);
 }
+
+..bg-rojo {
+    background-color: rgb(255, 48, 79) !important;
+  }
 
 @media (max-width: 991.98px) {
     .nav-bar {

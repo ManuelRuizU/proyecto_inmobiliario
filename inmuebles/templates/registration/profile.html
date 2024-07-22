@@ -1,0 +1,18 @@
+<!-- profile.html -->
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="container">
+    <h1>Hola! {{ user.username }}</h1>
+    <p>Email: {{ user.email }}</p>
+    <p>Nombre: {{ user.first_name }} {{ user.last_name }}</p>
+    <p>RUT: {{ user.usuario.rut }}</p>
+    <p>Dirección: {{ user.usuario.direccion }}</p>
+    <p>Teléfono: {{ user.usuario.telefono }}</p>
+    <p>Tipo de usuario: {{ user.usuario.tipo_usuario }}</p>
+    <a href="{% url 'contenido' tipo='edit_profile' %}">Editar perfil</a>
+    <a href="{% url 'contenido' tipo='logout' %}">Cerrar sesión</a>
+</div>
+{% endblock %}
+
