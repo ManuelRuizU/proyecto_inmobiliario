@@ -1,0 +1,38 @@
+<!--propiedades_favoritas-->
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="container mt-5">
+    <h2 class="text-center">Propiedades Favoritas</h2>
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Imagen</th>
+                <th scope="col">Arrendador</th>
+                <th scope="col">Tipo</th>
+                <th scope="col">Precio Mensual</th>
+                <th scope="col">Telefono</th>
+                <th scope="col">Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for propiedad in propiedades %}
+            <tr>
+                <th scope="row">{{ forloop.counter }}</th>
+                <td><img src="{{ propiedad.image_url }}" alt="{{ propiedad.nombre }}" style="height: 100px; object-fit: cover; width: 100px;"></td>
+                <td>{{ propiedad.arrendador }}</td>
+                <td>{{ propiedad.tipo_inmueble }}</td>
+                <td>{{ propiedad.precio_mensual }} {{ propiedad.tipo_moneda.nombre }}</td>
+                <td>{{ propiedad.arrendador.telefono }}</td>
+                <td>
+                    <a href="{% url 'eliminar_favorito' propiedad.pk %}" class="btn btn-sm btn-danger">Eliminar</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}
+

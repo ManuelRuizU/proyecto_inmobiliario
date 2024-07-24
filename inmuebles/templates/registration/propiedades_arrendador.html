@@ -1,0 +1,39 @@
+<!--propiedades_arrendador.html-->
+
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="container mt-5">
+    <h1>Mis Propiedades</h1>
+    <a href="{% url 'agregar_propiedad' %}" class="btn btn-primary mb-3">Agregar Propiedad</a>
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Imagen</th>
+                <th scope="col">Nombre</th>
+                <th scope="col">Tipo</th>
+                <th scope="col">Precio Mensual</th>
+                <th scope="col">Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for propiedad in propiedades %}
+            <tr>
+                <th scope="row">{{ forloop.counter }}</th>
+                <td><img src="{{ propiedad.image_url }}" alt="{{ propiedad.nombre }}" style="height: 100px; object-fit: cover; width: 100px;"></td>
+                <td>{{ propiedad.nombre }}</td>
+                <td>{{ propiedad.tipo_inmueble }}</td>
+                <td>{{ propiedad.precio_mensual }} {{ propiedad.tipo_moneda.nombre }}</td>
+                <td>
+                    <a href="{% url 'editar_propiedad' propiedad.pk %}" class="btn btn-sm btn-warning">Editar</a>
+                    <a href="{% url 'eliminar_propiedad' propiedad.pk %}" class="btn btn-sm btn-danger">Eliminar</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}
+

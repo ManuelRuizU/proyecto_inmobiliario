@@ -1,0 +1,15 @@
+<!-- propiedades_favoritas.html -->
+
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="container mt-5">
+    <h1>Mis Propiedades Favoritas</h1>
+    <ul>
+        {% for favorito in favoritos %}
+            <li>{{ favorito.propiedad.titulo }} - {{ favorito.propiedad.direccion }} - ${{ favorito.propiedad.precio }}</li>
+        {% endfor %}
+    </ul>
+</div>
+{% endblock %}

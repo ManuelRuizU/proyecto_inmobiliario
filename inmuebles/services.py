@@ -1,10 +1,11 @@
 # services.py
 
 from django.db import IntegrityError
+from django.shortcuts import get_object_or_404
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib.auth import login, logout
-from .forms import EditProfileForm, UserForm, CustomUserCreationForm
-from .models import Usuario
+from .forms import EditProfileForm, UserForm, CustomUserCreationForm, PropiedadForm
+from .models import Usuario, Propiedad
 
 def handle_login(request):
     if request.method == 'POST':
@@ -57,3 +58,45 @@ def handle_edit_profile(request):
 def handle_logout(request):
     logout(request)
 
+
+def obtener_usuario(request):
+    return get_object_or_404(Usuario, user=request.user)
+
+def obtener_propiedades_arrendador(usuario):
+    return Propiedad.objects.filter(arrendador=usuario)
+
+def obtener_propiedades_favoritas(usuario):
+    return usuario.propiedades_favoritas.all()
+
+def agregar_propiedad_logic(request, usuario):
+    if request.method == 'POST':
+        form = PropiedadForm(request.POST)
+        if form.is_valid():
+            propiedad = form.save(commit=False)
+            propiedad.arrendador = usuario
+            propiedad.save()
+            return True, form
+    else:
+        form = PropiedadForm()
+    return False, form
+
+def editar_propiedad_logic(request, propiedad):
+    if request.method == 'POST':
+        form = PropiedadForm(request.POST, instance=propiedad)
+        if form.is_valid():
+            form.save()
+            return True, form
+    else:
+        form = PropiedadForm(instance=propiedad)
+    return False, form
+
+def eliminar_propiedad_logic(propiedad):
+    propiedad.delete()
+
+def agregar_favorito(usuario, propiedad):
+    if usuario.tipo_usuario == 'arrendatario':
+        usuario.propiedades_favoritas.add(propiedad)
+
+def eliminar_favorito(usuario, propiedad):
+    if usuario.tipo_usuario == 'arrendatario':
+        usuario.propiedades_favoritas.remove(propiedad)

@@ -41,3 +41,9 @@ class CustomUserCreationForm(UserCreationForm):
         return rut
 
 
+class PropiedadForm(forms.ModelForm):
+    class Meta:
+        model = Propiedad
+        fields = '__all__'
+        exclude = ['arrendador']  # El arrendador se asigna automáticamente en la vista
+

@@ -1,0 +1,34 @@
+<!-- card.html -->
+{% load static %}
+
+<div class="row">
+    {% for propiedad in propiedades %}
+    <div class="cardo col-sm-3 mb-3">
+        <div class="card" style="width: 100%;">
+            <img src="{{ propiedad.image_url }}" class="card-img-top" alt="{{ propiedad.nombre }}" style="height: 200px; object-fit: cover; width: 100%;">
+            <div class="card-body">
+                <h5 class="card-title">{{ propiedad.nombre }}</h5>
+                <p class="card-text">{{ propiedad.tipo_inmueble }}</p>
+                <p class="card-text">{{ propiedad.precio_mensual }} {{ propiedad.tipo_moneda.nombre }}</p>
+                <!-- Llama a la función showModal al hacer clic en el botón -->
+                <button type="button" class="btn btn-link" onclick="showModal('{{ propiedad.arrendador }}', '{{ propiedad.nombre }}', '{{ propiedad.tipo_inmueble }}', '{{ propiedad.image_url }}')">
+                    <i class="bi bi-info-circle"></i>
+                </button>
+                {% if user.is_authenticated and user.usuario.tipo_usuario == 'arrendatario' %}
+                <button type="button" class="btn btn-outline-danger" onclick="window.location.href='{% url 'agregar_favorito' propiedad.pk %}'">
+                    <i class="bi bi-heart-fill"></i>
+                </button>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+
+
+
+
+
+
+
+

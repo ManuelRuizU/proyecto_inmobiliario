@@ -18,6 +18,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from inmuebles import views
+from inmuebles.views import contenido, propiedades_arrendador, propiedades_favoritas, agregar_propiedad, editar_propiedad, eliminar_propiedad
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -27,8 +28,16 @@ urlpatterns = [
     path('profile/', views.contenido, {'tipo': 'profile'}, name='profile'),  # Ruta específica para el perfil
     path('edit_profile/', views.contenido, {'tipo': 'edit_profile'}, name='edit_profile'),  # Ruta específica para editar el perfil
     path('logout/', views.contenido, {'tipo': 'logout'}, name='logout'),  # Ruta específica para logout
+    path('propiedades-arrendador/', propiedades_arrendador, name='propiedades_arrendador'),  # Ruta para listar propiedades de arrendador
+    path('propiedades-favoritas/', propiedades_favoritas, name='propiedades_favoritas'),  # Ruta para listar propiedades favoritas de arrendatario
+    path('agregar-propiedad/', agregar_propiedad, name='agregar_propiedad'),  # Ruta para agregar una propiedad
+    path('editar-propiedad/<int:pk>/', editar_propiedad, name='editar_propiedad'),  # Ruta para editar una propiedad
+    path('eliminar-propiedad/<int:pk>/', eliminar_propiedad, name='eliminar_propiedad'),  # Ruta para eliminar una propiedad
     path('<str:tipo>/', views.contenido, name='contenido'),  # Ruta genérica para otros tipos de contenido
     path('', views.contenido, {'tipo': 'index'}, name='index'),  # Ruta para la página de inicio
+    path('agregar-favorito/<int:pk>/', views.agregar_favorito_view, name='agregar_favorito'), # Ruta para agregar una propiedad a fsvorito
+    path('eliminar-favorito/<int:pk>/', views.eliminar_favorito_view, name='eliminar_favorito') # Ruta para eliminar una propiedad de favorito
 ]
+
 
 

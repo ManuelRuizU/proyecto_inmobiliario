@@ -2,17 +2,6 @@
 from django.contrib.auth.models import User
 from django.db import models
 
-# Usuario
-class Usuario(models.Model):
-    user = models.OneToOneField(User, on_delete=models.CASCADE)
-    rut = models.CharField(max_length=12, unique=True)
-    direccion = models.CharField(max_length=255)
-    telefono = models.CharField(max_length=20)
-    tipo_usuario = models.CharField(max_length=50, choices=[('arrendatario', 'Arrendatario'), ('arrendador', 'Arrendador')])
-
-    def __str__(self):
-        return f"{self.user.first_name} {self.user.last_name}"
-
 # Direccion
 class Direccion(models.Model):
     pais = models.CharField(max_length=100)
@@ -32,6 +21,17 @@ class TipoMoneda(models.Model):
     def __str__(self):
         return self.nombre
 
+# Usuario
+class Usuario(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    rut = models.CharField(max_length=12, unique=True)
+    direccion = models.CharField(max_length=255)
+    telefono = models.CharField(max_length=20)
+    tipo_usuario = models.CharField(max_length=50, choices=[('arrendatario', 'Arrendatario'), ('arrendador', 'Arrendador')])
+    propiedades_favoritas = models.ManyToManyField('Propiedad', related_name='usuarios_favoritos', blank=True, through='Favorito')
+
+    def __str__(self):
+        return f"{self.user.first_name} {self.user.last_name}"
 
 # Propiedad
 class Propiedad(models.Model):
@@ -41,6 +41,7 @@ class Propiedad(models.Model):
         ('Parcela', 'Parcela'),
     )
 
+    arrendador = models.ForeignKey(Usuario, on_delete=models.CASCADE)
     nombre = models.CharField(max_length=255)
     descripcion = models.TextField()
     m2_construidos = models.DecimalField(max_digits=10, decimal_places=2)
@@ -52,7 +53,6 @@ class Propiedad(models.Model):
     tipo_inmueble = models.CharField(max_length=50, choices=PROPIEDAD_CHOICES)
     precio_mensual = models.DecimalField(max_digits=10, decimal_places=1)
     tipo_moneda = models.ForeignKey(TipoMoneda, on_delete=models.CASCADE)
-    arrendador = models.ForeignKey('Usuario', on_delete=models.CASCADE, related_name='propiedades')
     numero_departamento = models.CharField(max_length=10, blank=True, null=True)
     image_url = models.URLField(max_length=255, default='ingrese_una_url_para_la_imagen')
     url = models.CharField(max_length=100, default='')
@@ -65,6 +65,12 @@ class Propiedad(models.Model):
         if self.tipo_inmueble != 'Departamento':
             self.numero_departamento = None
         super().save(*args, **kwargs)
+
+# Favorito
+class Favorito(models.Model):
+    usuario = models.ForeignKey(Usuario, on_delete=models.CASCADE)
+    propiedad = models.ForeignKey(Propiedad, on_delete=models.CASCADE)
+
 
 
 

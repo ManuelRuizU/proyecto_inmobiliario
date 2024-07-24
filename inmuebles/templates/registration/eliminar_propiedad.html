@@ -1,0 +1,16 @@
+<!--eliminar_propiedad.html-->
+
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="container mt-5">
+    <h1>Eliminar Propiedad</h1>
+    <p>¿Estás seguro de que deseas eliminar la propiedad "{{ propiedad.nombre }}"?</p>
+    <form method="post">
+        {% csrf_token %}
+        <button type="submit" class="btn btn-danger">Eliminar</button>
+        <a href="{% url 'propiedades_arrendador' %}" class="btn btn-secondary">Cancelar</a>
+    </form>
+</div>
+{% endblock %}
